@@ -1,1 +1,4 @@
-pytest==4.6
+numpy
+requests
+pandas
+Pillow
