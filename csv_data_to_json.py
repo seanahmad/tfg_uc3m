@@ -65,50 +65,46 @@ def get_licenses():
     ]
 
 
-def get_images():
+def get_images(training=True):
     # Getting dataset root path
     dir_path = os.path.dirname(os.path.realpath(__file__))
     lisa_path = os.path.join(dir_path, DATASET_PATH)
 
-    folders = [os.path.join(lisa_path, i) for i in ['test', 'training']]
+    if training:
+        folder = os.path.join(lisa_path, 'train2017')
+    else:
+        folder = os.path.join(lisa_path, 'val2017')
 
     images = []
-    for folder in folders:
-        for f in os.listdir(folder):
-            # Sanity check in case someone has put some random not-jpg-file in the folders
-            if f.endswith('.jpg'):
-
-                img_id = re.search('(?<=--)(.*[^.jpg])', f).group() # Everything between the -- and the .jpg
-
-                images.append(
-                {
-                    "license": 1,
-                    "file_name": os.path.join(folder, f), # Full path
-                    "height": 960,
-                    "width": 1280,
-                    "id": img_id
-                })
+    id = 0
+    for f in os.listdir(folder):
+        if f.endswith('.jpg'):
+            images.append(
+            {
+                "license": 1,
+                "file_name": f,
+                "height": 960,
+                "width": 1280,
+                "id": id
+            })
+            id += 1
 
     return images
 
 
-def get_categories():
-    # Original COCO categories
-    tags = ['person','bicycle','car','motorcycle','airplane','bus','train',
-        'truck','boat','traffic light','fire hydrant','stop sign','parking meter','bench',
-        'bird','cat','dog','horse','sheep','cow','elephant','bear','zebra','giraffe',
-        'backpack','umbrella','handbag','tie','suitcase','frisbee','skis','snowboard',
-        'sports ball','kite','baseball bat','baseball glove','skateboard','surfboard',
-        'tennis racket','bottle','wine glass','cup','fork','knife','spoon','bowl','banana',
-        'apple','sandwich','orange','broccoli','carrot','hot dog','pizza','donut','cake',
-        'chair','couch','potted plant','bed','dining table','toilet','tv','laptop','mouse',
-        'remote','keyboard','cell phone','microwave','oven','toaster','sink','refrigerator',
-        'book','clock','vase','scissors','teddy bear','hair drier','toothbrush']
-
+def get_categories(training=True):
+    # Getting dataset root path
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    df = pd.read_csv(os.path.join(dir_path, 'total.csv'), index_col=False)
+    lisa_path = os.path.join(dir_path, DATASET_PATH)
 
-    tags.extend(df['Annotation tag'].unique().tolist())
+    if training:
+        df = pd.read_csv(os.path.join(lisa_path, 'training_data.csv'), 
+            index_col=False)
+    else:
+        df = pd.read_csv(os.path.join(lisa_path, 'test_data.csv'), 
+            index_col=False)
+
+    tags = df['Annotation tag'].unique().tolist()
     print('Tags len is: ' + str(len(tags)))
 
     categories = []
@@ -120,10 +116,17 @@ def get_categories():
     return categories
 
 
-def get_annotations(images, categories):
-
+def get_annotations(images, categories, training=True):
+    # Getting dataset root path
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    df = pd.read_csv(os.path.join(dir_path, 'total.csv'), index_col=False)
+    lisa_path = os.path.join(dir_path, DATASET_PATH)
+
+    if training:
+        df = pd.read_csv(os.path.join(lisa_path, 'training_data.csv'), 
+            index_col=False)
+    else:
+        df = pd.read_csv(os.path.join(lisa_path, 'test_data.csv'), 
+            index_col=False)
 
     # Converting the dataframe into a list of lists
     data = df.values.tolist()
@@ -172,19 +175,37 @@ def get_annotations(images, categories):
 def main():
     info = get_info()
     licenses = get_licenses()
-    images = get_images()
-    categories = get_categories()
-    annotations = get_annotations(images, categories)
 
-    data = {
+    training_images = get_images(training=True)
+    test_images     = get_images(training=False)
+
+    training_categories = get_categories(training=True)
+    test_categories     = get_categories(training=False)
+
+    training_annotations = get_annotations(training_images, 
+        training_categories, training=True)
+    test_annotations     = get_annotations(test_images, 
+        test_categories, training=False)
+
+    training_data = {
         "info": info,
         "licenses": licenses,
-        "images": images,
-        "annotations": annotations,
-        "categories": categories
+        "images": training_images,
+        "annotations": training_annotations,
+        "categories": training_categories
     }
 
-    with open('data.json', 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
+    test_data = {
+        "info": info,
+        "licenses": licenses,
+        "images": test_images,
+        "annotations": test_annotations,
+        "categories": test_categories
+    }
+
+    with open('training_data.json', 'w', encoding='utf-8') as f:
+        json.dump(training_data, f, ensure_ascii=False, indent=4)
+    with open('test_data.json', 'w', encoding='utf-8') as f:
+        json.dump(test_data, f, ensure_ascii=False, indent=4)
 
 main()

@@ -34,31 +34,32 @@ rm -rf *.zip
 echo "Removing sample folders"
 rm -rf sample-dayClip6
 rm -rf sample-nightClip1
-echo "Creating pictures folders"
-mkdir training
-mkdir test
+echo "Creating folders"
+mkdir train2017
+mkdir val2017
+mkdir annotations_trainval2017
 
 # daySequence1 and nightSequence1 are the testing images
 for f in `find . -type f -path '*daySequence1*/*' -name '*jpg'`
 do
    echo "Moving ${f} to test folder"
-   mv $f test
+   mv $f val2017
 done
 for f in `find . -type f -path '*nightSequence1*/*' -name '*jpg'`
 do
    echo "Moving ${f} to test folder"
-   mv $f test
+   mv $f val2017
 done
 # Everything else is for training
 for f in `find . -type f -path '*Train*/*' -name '*jpg'`
 do
    echo "Moving ${f} to training folder"
-   mv $f training
+   mv $f train2017
 done
 for f in `find . -type f -path '*Sequence*/*' -name '*jpg'`
 do
    echo "Moving ${f} to training folder"
-   mv $f training
+   mv $f train2017
 done
 
 echo "Merging all annotations into a single file..."
@@ -66,7 +67,12 @@ cd "$script_path"
 python3 merge_csv_data.py "${dataset_folder}"
 mv training_data.csv "${dataset_folder}"
 mv test_data.csv "${dataset_folder}"
+python3 csv_data_to_json.py "${dataset_folder}"
+mv training_data.json "${dataset_folder}"
+mv test_data.json "${dataset_folder}"
 cd "${dataset_folder}"
+mv training_data.csv test_data.csv \
+        training_data.json test_data.json annotations_trainval2017
 
 echo "Removing empty folders..."
 rm -rf daySequence*
@@ -74,3 +80,5 @@ rm -rf dayTrain
 rm -rf nightSequence*
 rm -rf nightTrain
 rm -rf Annotations
+
+echo 'Finished!'
