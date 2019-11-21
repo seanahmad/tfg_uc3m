@@ -37,7 +37,7 @@ rm -rf sample-nightClip1
 echo "Creating folders"
 mkdir train2017
 mkdir val2017
-mkdir annotations_trainval2017
+mkdir annotations
 
 # daySequence1 and nightSequence1 are the testing images
 for f in `find . -type f -path '*daySequence1*/*' -name '*jpg'`
@@ -72,7 +72,7 @@ mv training_data.json "${dataset_folder}"
 mv test_data.json "${dataset_folder}"
 cd "${dataset_folder}"
 mv training_data.csv test_data.csv \
-        training_data.json test_data.json annotations_trainval2017
+        training_data.json test_data.json annotations
 
 echo "Removing empty folders..."
 rm -rf daySequence*

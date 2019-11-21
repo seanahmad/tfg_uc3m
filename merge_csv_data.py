@@ -20,8 +20,8 @@ def get_folders(annotations=False):
     test_folders        = ['daySequence1', 'nightSequence1']
 
     if annotations:
-        train_folders = [os.path.join(lisa_path, 'Annotations', i) for i in train_folders]
-        test_folders = [os.path.join(lisa_path, 'Annotations', i) for i in test_folders]
+        train_folders = [os.path.join(lisa_path, 'Annotations', 'Annotations', i) for i in train_folders]
+        test_folders = [os.path.join(lisa_path, 'Annotations', 'Annotations', i) for i in test_folders]
     else:
         train_folders = [os.path.join(lisa_path, i) for i in train_folders]
         test_folders = [os.path.join(lisa_path, i) for i in test_folders]

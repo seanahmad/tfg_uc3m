@@ -203,9 +203,9 @@ def main():
         "categories": test_categories
     }
 
-    with open('training_data.json', 'w', encoding='utf-8') as f:
+    with open('instances_train2017.json', 'w', encoding='utf-8') as f:
         json.dump(training_data, f, ensure_ascii=False, indent=4)
-    with open('test_data.json', 'w', encoding='utf-8') as f:
+    with open('instances_val2017.json', 'w', encoding='utf-8') as f:
         json.dump(test_data, f, ensure_ascii=False, indent=4)
 
 main()

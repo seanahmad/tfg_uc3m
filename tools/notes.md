@@ -62,3 +62,14 @@ Also, the original COCO tags are not in this dataset
         'chair','couch','potted plant','bed','dining table','toilet','tv','laptop','mouse',
         'remote','keyboard','cell phone','microwave','oven','toaster','sink','refrigerator',
         'book','clock','vase','scissors','teddy bear','hair drier','toothbrush']
+
+-----
+
+Steps 
+
+sudo pip install kaggle
+mkdir .kaggle
+touch kaggle.json
+{"username":"ruromgar","key":"505bcd15331d7193d162bb7ce9c3f5af"}
+kaggle datasets download mbornoe/lisa-traffic-light-dataset
+unzip lisa-traffic-light-dataset.zip -d data/
