@@ -13,11 +13,15 @@ def get_folders(annotations=False):
     lisa_path = os.path.join(dir_path, DATASET_PATH)
 
     # Image folders names
+    # Not selecting night images to speed up training
+    #day_train_folders   = [os.path.join('dayTrain', f'dayClip{i}') for i in range(1, 14)]
+    #night_train_folders = [os.path.join('nightTrain', f'nightClip{i}') for i in range(1, 6)]
+    #train_folders = day_train_folders + night_train_folders + ['daySequence2', 'nightSequence2']
+    #test_folders        = ['daySequence1', 'nightSequence1']
+
     day_train_folders   = [os.path.join('dayTrain', f'dayClip{i}') for i in range(1, 14)]
-    night_train_folders = [os.path.join('nightTrain', f'nightClip{i}') for i in range(1, 6)]
-    
-    train_folders = day_train_folders + night_train_folders + ['daySequence2', 'nightSequence2']
-    test_folders        = ['daySequence1', 'nightSequence1']
+    train_folders       = day_train_folders + ['daySequence2']
+    test_folders        = ['daySequence1']
 
     if annotations:
         train_folders = [os.path.join(lisa_path, 'Annotations', 'Annotations', i) for i in train_folders]

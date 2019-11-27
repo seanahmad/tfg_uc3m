@@ -34,6 +34,9 @@ rm -rf *.zip
 echo "Removing sample folders"
 rm -rf sample-dayClip6
 rm -rf sample-nightClip1
+echo "Removing night folders" # to speed up training
+rm -rf night*
+rm -rf Annotations/night*
 echo "Creating folders"
 mkdir train2017
 mkdir val2017
@@ -68,11 +71,11 @@ python3 merge_csv_data.py "${dataset_folder}"
 mv training_data.csv "${dataset_folder}"
 mv test_data.csv "${dataset_folder}"
 python3 csv_data_to_json.py "${dataset_folder}"
-mv training_data.json "${dataset_folder}"
-mv test_data.json "${dataset_folder}"
+mv instances_train2017.json "${dataset_folder}"
+mv instances_val2017.json "${dataset_folder}"
 cd "${dataset_folder}"
 mv training_data.csv test_data.csv \
-        training_data.json test_data.json annotations
+        instances_train2017.json instances_val2017.json annotations
 
 echo "Removing empty folders..."
 rm -rf daySequence*
