@@ -1,0 +1,11 @@
+cd faster_rcnn/
+python3.6 -m venv faster_rcnn
+source faster_rcnn/bin/activate
+
+Seguir los pasos de instalación del README
+
+bash ./scripts/coco2017/train-bs4.sh resnet50 ./outputs
+
+{'go': 1, 'stop': 2, 'stopLeft': 3, 'goLeft': 4, 'warningLeft': 5, 'warning': 6, 'goForward': 7}
+
+ha habido que modificar el script (coco.py) para que pille los nombres correctos

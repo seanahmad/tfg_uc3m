@@ -1,0 +1,297 @@
+root@cde39677a099:/workspace#     retinanet train retinanet_rn50fpn.pth --backbone ResNet50FPN --lr 0.00125 \
+>     --images ./retinanet/coco/train2017/ --annotations ./retinanet/coco/annotations/instances_train2017.json \
+>     --val-images ./retinanet/coco/val2017/ --val-annotations ./retinanet/coco/annotations/instances_val2017.json \
+>     --classes 7 --batch 4 --iters 30000
+Initializing model...
+     model: RetinaNet
+  backbone: ResNet50FPN
+   classes: 7, anchors: 9
+Selected optimization level O2:  FP16 training with FP32 batchnorm and FP32 master weights.
+
+Defaults for this optimization level are:
+enabled                : True
+opt_level              : O2
+cast_model_type        : torch.float16
+patch_torch_functions  : False
+keep_batchnorm_fp32    : True
+master_weights         : True
+loss_scale             : dynamic
+Processing user overrides (additional kwargs that are not None)...
+After processing overrides, optimization options are:
+enabled                : True
+opt_level              : O2
+cast_model_type        : torch.float16
+patch_torch_functions  : False
+keep_batchnorm_fp32    : True
+master_weights         : True
+loss_scale             : 128.0
+Preparing dataset...
+    loader: pytorch
+    resize: [640, 1024], max: 1333
+    device: 1 gpu
+    batch: 4, precision: mixed
+Training model for 30000 iterations...
+[  127/30000] focal loss: 1.139, box loss: 0.398, 0.474s/4-batch (fw: 0.173s, bw: 0.156s), 8.4 im/s, lr: 0.00027
+[  254/30000] focal loss: 1.020, box loss: 0.330, 0.473s/4-batch (fw: 0.143s, bw: 0.155s), 8.5 im/s, lr: 0.00041
+[  386/30000] focal loss: 0.721, box loss: 0.304, 0.457s/4-batch (fw: 0.148s, bw: 0.155s), 8.8 im/s, lr: 0.00056
+[  514/30000] focal loss: 0.721, box loss: 0.254, 0.472s/4-batch (fw: 0.146s, bw: 0.157s), 8.5 im/s, lr: 0.0007
+[  645/30000] focal loss: 0.580, box loss: 0.238, 0.459s/4-batch (fw: 0.147s, bw: 0.157s), 8.7 im/s, lr: 0.00085
+[  776/30000] focal loss: 0.565, box loss: 0.201, 0.458s/4-batch (fw: 0.146s, bw: 0.154s), 8.7 im/s, lr: 0.001
+[  908/30000] focal loss: 0.431, box loss: 0.197, 0.456s/4-batch (fw: 0.141s, bw: 0.153s), 8.8 im/s, lr: 0.0011
+[ 1039/30000] focal loss: 0.796, box loss: 0.227, 0.459s/4-batch (fw: 0.143s, bw: 0.154s), 8.7 im/s, lr: 0.0013
+[ 1170/30000] focal loss: 0.891, box loss: 0.193, 0.460s/4-batch (fw: 0.143s, bw: 0.154s), 8.7 im/s, lr: 0.0013
+[ 1301/30000] focal loss: 1.053, box loss: 0.187, 0.460s/4-batch (fw: 0.143s, bw: 0.154s), 8.7 im/s, lr: 0.0013
+[ 1431/30000] focal loss: 0.865, box loss: 0.155, 0.464s/4-batch (fw: 0.143s, bw: 0.154s), 8.6 im/s, lr: 0.0013
+[ 1560/30000] focal loss: 0.504, box loss: 0.148, 0.469s/4-batch (fw: 0.148s, bw: 0.156s), 8.5 im/s, lr: 0.0013
+[ 1688/30000] focal loss: 0.433, box loss: 0.126, 0.471s/4-batch (fw: 0.140s, bw: 0.154s), 8.5 im/s, lr: 0.0013
+[ 1819/30000] focal loss: 0.375, box loss: 0.108, 0.461s/4-batch (fw: 0.145s, bw: 0.154s), 8.7 im/s, lr: 0.0013
+[ 1950/30000] focal loss: 0.332, box loss: 0.115, 0.459s/4-batch (fw: 0.142s, bw: 0.153s), 8.7 im/s, lr: 0.0013
+[ 2082/30000] focal loss: 0.378, box loss: 0.115, 0.456s/4-batch (fw: 0.139s, bw: 0.152s), 8.8 im/s, lr: 0.0013
+[ 2211/30000] focal loss: 0.236, box loss: 0.109, 0.469s/4-batch (fw: 0.148s, bw: 0.158s), 8.5 im/s, lr: 0.0013
+[ 2341/30000] focal loss: 0.288, box loss: 0.119, 0.462s/4-batch (fw: 0.142s, bw: 0.156s), 8.7 im/s, lr: 0.0013
+[ 2472/30000] focal loss: 0.318, box loss: 0.144, 0.460s/4-batch (fw: 0.144s, bw: 0.155s), 8.7 im/s, lr: 0.0013
+[ 2605/30000] focal loss: 0.176, box loss: 0.108, 0.455s/4-batch (fw: 0.144s, bw: 0.154s), 8.8 im/s, lr: 0.0013
+[ 2739/30000] focal loss: 0.195, box loss: 0.103, 0.450s/4-batch (fw: 0.140s, bw: 0.152s), 8.9 im/s, lr: 0.0013
+[ 2870/30000] focal loss: 0.150, box loss: 0.093, 0.461s/4-batch (fw: 0.138s, bw: 0.153s), 8.7 im/s, lr: 0.0013
+[ 3001/30000] focal loss: 0.186, box loss: 0.101, 0.458s/4-batch (fw: 0.143s, bw: 0.154s), 8.7 im/s, lr: 0.0013
+[ 3131/30000] focal loss: 0.173, box loss: 0.100, 0.463s/4-batch (fw: 0.143s, bw: 0.156s), 8.6 im/s, lr: 0.0013
+[ 3263/30000] focal loss: 0.213, box loss: 0.094, 0.457s/4-batch (fw: 0.145s, bw: 0.154s), 8.8 im/s, lr: 0.0013
+[ 3394/30000] focal loss: 0.164, box loss: 0.096, 0.461s/4-batch (fw: 0.143s, bw: 0.155s), 8.7 im/s, lr: 0.0013
+[ 3527/30000] focal loss: 0.136, box loss: 0.090, 0.451s/4-batch (fw: 0.144s, bw: 0.154s), 8.9 im/s, lr: 0.0013
+[ 3658/30000] focal loss: 0.130, box loss: 0.086, 0.458s/4-batch (fw: 0.149s, bw: 0.155s), 8.7 im/s, lr: 0.0013
+[ 3787/30000] focal loss: 0.145, box loss: 0.087, 0.467s/4-batch (fw: 0.146s, bw: 0.158s), 8.6 im/s, lr: 0.0013
+[ 3918/30000] focal loss: 0.434, box loss: 0.115, 0.460s/4-batch (fw: 0.147s, bw: 0.155s), 8.7 im/s, lr: 0.0013
+[ 4050/30000] focal loss: 0.204, box loss: 0.097, 0.456s/4-batch (fw: 0.149s, bw: 0.155s), 8.8 im/s, lr: 0.0013
+[ 4180/30000] focal loss: 0.209, box loss: 0.088, 0.464s/4-batch (fw: 0.143s, bw: 0.156s), 8.6 im/s, lr: 0.0013
+[ 4311/30000] focal loss: 0.189, box loss: 0.089, 0.459s/4-batch (fw: 0.144s, bw: 0.156s), 8.7 im/s, lr: 0.0013
+[ 4443/30000] focal loss: 0.170, box loss: 0.090, 0.456s/4-batch (fw: 0.139s, bw: 0.155s), 8.8 im/s, lr: 0.0013
+[ 4573/30000] focal loss: 0.134, box loss: 0.081, 0.463s/4-batch (fw: 0.145s, bw: 0.156s), 8.6 im/s, lr: 0.0013
+[ 4706/30000] focal loss: 0.135, box loss: 0.084, 0.453s/4-batch (fw: 0.139s, bw: 0.153s), 8.8 im/s, lr: 0.0013
+[ 4841/30000] focal loss: 0.141, box loss: 0.085, 0.447s/4-batch (fw: 0.142s, bw: 0.151s), 8.9 im/s, lr: 0.0013
+[ 4973/30000] focal loss: 0.373, box loss: 0.098, 0.458s/4-batch (fw: 0.143s, bw: 0.155s), 8.7 im/s, lr: 0.0013
+[ 5106/30000] focal loss: 0.261, box loss: 0.093, 0.454s/4-batch (fw: 0.143s, bw: 0.155s), 8.8 im/s, lr: 0.0013
+[ 5237/30000] focal loss: 0.183, box loss: 0.089, 0.459s/4-batch (fw: 0.142s, bw: 0.154s), 8.7 im/s, lr: 0.0013
+[ 5381/30000] focal loss: 0.136, box loss: 0.084, 0.417s/4-batch (fw: 0.174s, bw: 0.162s), 9.6 im/s, lr: 0.0013
+[ 5529/30000] focal loss: 0.123, box loss: 0.080, 0.406s/4-batch (fw: 0.177s, bw: 0.159s), 9.9 im/s, lr: 0.0013
+[ 5674/30000] focal loss: 0.166, box loss: 0.091, 0.416s/4-batch (fw: 0.176s, bw: 0.161s), 9.6 im/s, lr: 0.0013
+[ 5821/30000] focal loss: 0.293, box loss: 0.094, 0.410s/4-batch (fw: 0.176s, bw: 0.160s), 9.8 im/s, lr: 0.0013
+[ 5967/30000] focal loss: 0.190, box loss: 0.098, 0.414s/4-batch (fw: 0.171s, bw: 0.159s), 9.7 im/s, lr: 0.0013
+[ 6114/30000] focal loss: 0.145, box loss: 0.091, 0.409s/4-batch (fw: 0.175s, bw: 0.160s), 9.8 im/s, lr: 0.0013
+[ 6261/30000] focal loss: 0.124, box loss: 0.084, 0.410s/4-batch (fw: 0.176s, bw: 0.162s), 9.8 im/s, lr: 0.0013
+[ 6407/30000] focal loss: 0.117, box loss: 0.073, 0.412s/4-batch (fw: 0.179s, bw: 0.161s), 9.7 im/s, lr: 0.0013
+[ 6549/30000] focal loss: 0.130, box loss: 0.080, 0.423s/4-batch (fw: 0.178s, bw: 0.163s), 9.4 im/s, lr: 0.0013
+[ 6693/30000] focal loss: 0.124, box loss: 0.074, 0.418s/4-batch (fw: 0.177s, bw: 0.160s), 9.6 im/s, lr: 0.0013
+[ 6837/30000] focal loss: 0.238, box loss: 0.094, 0.418s/4-batch (fw: 0.184s, bw: 0.163s), 9.6 im/s, lr: 0.0013
+[ 6984/30000] focal loss: 0.216, box loss: 0.076, 0.410s/4-batch (fw: 0.175s, bw: 0.160s), 9.8 im/s, lr: 0.0013
+[ 7129/30000] focal loss: 0.105, box loss: 0.070, 0.416s/4-batch (fw: 0.178s, bw: 0.160s), 9.6 im/s, lr: 0.0013
+[ 7273/30000] focal loss: 0.130, box loss: 0.077, 0.418s/4-batch (fw: 0.182s, bw: 0.162s), 9.6 im/s, lr: 0.0013
+[ 7420/30000] focal loss: 0.103, box loss: 0.064, 0.409s/4-batch (fw: 0.178s, bw: 0.161s), 9.8 im/s, lr: 0.0013
+[ 7566/30000] focal loss: 0.123, box loss: 0.072, 0.412s/4-batch (fw: 0.175s, bw: 0.160s), 9.7 im/s, lr: 0.0013
+[ 7707/30000] focal loss: 0.138, box loss: 0.085, 0.428s/4-batch (fw: 0.178s, bw: 0.162s), 9.4 im/s, lr: 0.0013
+[ 7851/30000] focal loss: 0.107, box loss: 0.074, 0.419s/4-batch (fw: 0.179s, bw: 0.162s), 9.6 im/s, lr: 0.0013
+[ 7996/30000] focal loss: 0.116, box loss: 0.070, 0.417s/4-batch (fw: 0.182s, bw: 0.162s), 9.6 im/s, lr: 0.0013
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.09254
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.20983
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.07678
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.03141
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.19944
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.28625
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.14593
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.21386
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.21386
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.07763
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.39024
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.42500
+[ 8001/30000] focal loss: 0.107, box loss: 0.087, 66.839s/4-batch (fw: 0.192s, bw: 0.170s), 0.1 im/s, lr: 0.0013
+[ 8149/30000] focal loss: 0.168, box loss: 0.077, 0.407s/4-batch (fw: 0.175s, bw: 0.159s), 9.8 im/s, lr: 0.0013
+[ 8296/30000] focal loss: 0.283, box loss: 0.081, 0.409s/4-batch (fw: 0.175s, bw: 0.162s), 9.8 im/s, lr: 0.0013
+[ 8440/30000] focal loss: 0.120, box loss: 0.068, 0.417s/4-batch (fw: 0.183s, bw: 0.161s), 9.6 im/s, lr: 0.0013
+[ 8583/30000] focal loss: 0.143, box loss: 0.072, 0.424s/4-batch (fw: 0.186s, bw: 0.161s), 9.4 im/s, lr: 0.0013
+[ 8725/30000] focal loss: 0.104, box loss: 0.069, 0.424s/4-batch (fw: 0.179s, bw: 0.161s), 9.4 im/s, lr: 0.0013
+[ 8868/30000] focal loss: 0.102, box loss: 0.070, 0.421s/4-batch (fw: 0.181s, bw: 0.163s), 9.5 im/s, lr: 0.0013
+[ 9013/30000] focal loss: 0.097, box loss: 0.074, 0.416s/4-batch (fw: 0.179s, bw: 0.161s), 9.6 im/s, lr: 0.0013
+[ 9160/30000] focal loss: 0.119, box loss: 0.071, 0.410s/4-batch (fw: 0.171s, bw: 0.159s), 9.8 im/s, lr: 0.0013
+[ 9308/30000] focal loss: 0.095, box loss: 0.063, 0.406s/4-batch (fw: 0.177s, bw: 0.162s), 9.8 im/s, lr: 0.0013
+[ 9455/30000] focal loss: 0.106, box loss: 0.063, 0.409s/4-batch (fw: 0.175s, bw: 0.161s), 9.8 im/s, lr: 0.0013
+[ 9602/30000] focal loss: 0.102, box loss: 0.066, 0.410s/4-batch (fw: 0.172s, bw: 0.158s), 9.8 im/s, lr: 0.0013
+[ 9748/30000] focal loss: 0.090, box loss: 0.067, 0.413s/4-batch (fw: 0.178s, bw: 0.159s), 9.7 im/s, lr: 0.0013
+[ 9891/30000] focal loss: 0.101, box loss: 0.066, 0.421s/4-batch (fw: 0.183s, bw: 0.161s), 9.5 im/s, lr: 0.0013
+[10036/30000] focal loss: 0.098, box loss: 0.074, 0.416s/4-batch (fw: 0.177s, bw: 0.161s), 9.6 im/s, lr: 0.0013
+[10180/30000] focal loss: 0.103, box loss: 0.065, 0.418s/4-batch (fw: 0.169s, bw: 0.162s), 9.6 im/s, lr: 0.0013
+[10326/30000] focal loss: 0.118, box loss: 0.078, 0.412s/4-batch (fw: 0.182s, bw: 0.162s), 9.7 im/s, lr: 0.0013
+[10472/30000] focal loss: 0.080, box loss: 0.058, 0.413s/4-batch (fw: 0.173s, bw: 0.159s), 9.7 im/s, lr: 0.0013
+[10616/30000] focal loss: 0.080, box loss: 0.067, 0.418s/4-batch (fw: 0.181s, bw: 0.163s), 9.6 im/s, lr: 0.0013
+[10764/30000] focal loss: 0.102, box loss: 0.068, 0.408s/4-batch (fw: 0.178s, bw: 0.159s), 9.8 im/s, lr: 0.0013
+[10910/30000] focal loss: 0.118, box loss: 0.074, 0.413s/4-batch (fw: 0.182s, bw: 0.164s), 9.7 im/s, lr: 0.0013
+[11058/30000] focal loss: 0.112, box loss: 0.073, 0.408s/4-batch (fw: 0.177s, bw: 0.160s), 9.8 im/s, lr: 0.0013
+[11203/30000] focal loss: 0.113, box loss: 0.068, 0.415s/4-batch (fw: 0.177s, bw: 0.161s), 9.6 im/s, lr: 0.0013
+[11350/30000] focal loss: 0.112, box loss: 0.073, 0.410s/4-batch (fw: 0.174s, bw: 0.161s), 9.8 im/s, lr: 0.0013
+[11494/30000] focal loss: 0.094, box loss: 0.069, 0.417s/4-batch (fw: 0.179s, bw: 0.162s), 9.6 im/s, lr: 0.0013
+[11639/30000] focal loss: 0.077, box loss: 0.064, 0.417s/4-batch (fw: 0.171s, bw: 0.157s), 9.6 im/s, lr: 0.0013
+[11783/30000] focal loss: 0.088, box loss: 0.065, 0.417s/4-batch (fw: 0.180s, bw: 0.163s), 9.6 im/s, lr: 0.0013
+[11928/30000] focal loss: 0.156, box loss: 0.066, 0.415s/4-batch (fw: 0.178s, bw: 0.161s), 9.6 im/s, lr: 0.0013
+[12073/30000] focal loss: 0.204, box loss: 0.079, 0.416s/4-batch (fw: 0.185s, bw: 0.158s), 9.6 im/s, lr: 0.0013
+[12218/30000] focal loss: 0.104, box loss: 0.063, 0.414s/4-batch (fw: 0.184s, bw: 0.161s), 9.7 im/s, lr: 0.0013
+[12363/30000] focal loss: 0.079, box loss: 0.063, 0.415s/4-batch (fw: 0.179s, bw: 0.160s), 9.6 im/s, lr: 0.0013
+[12508/30000] focal loss: 0.084, box loss: 0.062, 0.414s/4-batch (fw: 0.179s, bw: 0.162s), 9.7 im/s, lr: 0.0013
+[12653/30000] focal loss: 0.099, box loss: 0.059, 0.416s/4-batch (fw: 0.177s, bw: 0.162s), 9.6 im/s, lr: 0.0013
+[12801/30000] focal loss: 0.111, box loss: 0.064, 0.407s/4-batch (fw: 0.178s, bw: 0.159s), 9.8 im/s, lr: 0.0013
+[12946/30000] focal loss: 0.102, box loss: 0.071, 0.415s/4-batch (fw: 0.179s, bw: 0.160s), 9.6 im/s, lr: 0.0013
+[13090/30000] focal loss: 0.071, box loss: 0.061, 0.418s/4-batch (fw: 0.183s, bw: 0.162s), 9.6 im/s, lr: 0.0013
+[13235/30000] focal loss: 0.089, box loss: 0.061, 0.416s/4-batch (fw: 0.187s, bw: 0.162s), 9.6 im/s, lr: 0.0013
+[13378/30000] focal loss: 0.124, box loss: 0.059, 0.420s/4-batch (fw: 0.178s, bw: 0.161s), 9.5 im/s, lr: 0.0013
+[13519/30000] focal loss: 0.182, box loss: 0.075, 0.426s/4-batch (fw: 0.184s, bw: 0.162s), 9.4 im/s, lr: 0.0013
+[13662/30000] focal loss: 0.091, box loss: 0.060, 0.420s/4-batch (fw: 0.186s, bw: 0.161s), 9.5 im/s, lr: 0.0013
+[13803/30000] focal loss: 0.112, box loss: 0.069, 0.428s/4-batch (fw: 0.181s, bw: 0.161s), 9.4 im/s, lr: 0.0013
+[13945/30000] focal loss: 0.080, box loss: 0.060, 0.425s/4-batch (fw: 0.181s, bw: 0.159s), 9.4 im/s, lr: 0.0013
+[14087/30000] focal loss: 0.071, box loss: 0.058, 0.424s/4-batch (fw: 0.180s, bw: 0.162s), 9.4 im/s, lr: 0.0013
+[14229/30000] focal loss: 0.077, box loss: 0.059, 0.426s/4-batch (fw: 0.183s, bw: 0.162s), 9.4 im/s, lr: 0.0013
+[14371/30000] focal loss: 0.094, box loss: 0.059, 0.425s/4-batch (fw: 0.185s, bw: 0.162s), 9.4 im/s, lr: 0.0013
+[14512/30000] focal loss: 0.068, box loss: 0.054, 0.428s/4-batch (fw: 0.182s, bw: 0.162s), 9.3 im/s, lr: 0.0013
+[14652/30000] focal loss: 0.079, box loss: 0.058, 0.429s/4-batch (fw: 0.177s, bw: 0.160s), 9.3 im/s, lr: 0.0013
+[14794/30000] focal loss: 0.079, box loss: 0.061, 0.425s/4-batch (fw: 0.178s, bw: 0.160s), 9.4 im/s, lr: 0.0013
+[14935/30000] focal loss: 0.070, box loss: 0.056, 0.431s/4-batch (fw: 0.181s, bw: 0.160s), 9.3 im/s, lr: 0.0013
+[15076/30000] focal loss: 0.074, box loss: 0.057, 0.427s/4-batch (fw: 0.176s, bw: 0.159s), 9.4 im/s, lr: 0.0013
+[15217/30000] focal loss: 0.075, box loss: 0.065, 0.426s/4-batch (fw: 0.186s, bw: 0.160s), 9.4 im/s, lr: 0.0013
+[15356/30000] focal loss: 0.097, box loss: 0.064, 0.432s/4-batch (fw: 0.189s, bw: 0.162s), 9.3 im/s, lr: 0.0013
+[15496/30000] focal loss: 0.084, box loss: 0.056, 0.430s/4-batch (fw: 0.179s, bw: 0.163s), 9.3 im/s, lr: 0.0013
+[15637/30000] focal loss: 0.072, box loss: 0.057, 0.426s/4-batch (fw: 0.183s, bw: 0.162s), 9.4 im/s, lr: 0.0013
+[15777/30000] focal loss: 0.068, box loss: 0.065, 0.434s/4-batch (fw: 0.183s, bw: 0.163s), 9.2 im/s, lr: 0.0013
+[15916/30000] focal loss: 0.065, box loss: 0.052, 0.433s/4-batch (fw: 0.179s, bw: 0.162s), 9.2 im/s, lr: 0.0013
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.10188
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.22225
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.07432
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.06195
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.25568
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.32470
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.11479
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.22436
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.22437
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.11295
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.42775
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.44167
+[16001/30000] focal loss: 0.079, box loss: 0.066, 4.067s/4-batch (fw: 0.174s, bw: 0.159s), 1.0 im/s, lr: 0.0013
+[16146/30000] focal loss: 0.082, box loss: 0.061, 0.416s/4-batch (fw: 0.179s, bw: 0.161s), 9.6 im/s, lr: 0.0013
+[16291/30000] focal loss: 0.105, box loss: 0.064, 0.415s/4-batch (fw: 0.185s, bw: 0.162s), 9.6 im/s, lr: 0.0013
+[16438/30000] focal loss: 0.089, box loss: 0.061, 0.411s/4-batch (fw: 0.181s, bw: 0.161s), 9.7 im/s, lr: 0.0013
+[16583/30000] focal loss: 0.076, box loss: 0.065, 0.415s/4-batch (fw: 0.175s, bw: 0.161s), 9.6 im/s, lr: 0.0013
+[16732/30000] focal loss: 0.081, box loss: 0.060, 0.406s/4-batch (fw: 0.181s, bw: 0.161s), 9.9 im/s, lr: 0.0013
+[16880/30000] focal loss: 0.087, box loss: 0.061, 0.406s/4-batch (fw: 0.176s, bw: 0.159s), 9.8 im/s, lr: 0.0013
+[17026/30000] focal loss: 0.086, box loss: 0.060, 0.411s/4-batch (fw: 0.178s, bw: 0.160s), 9.7 im/s, lr: 0.0013
+[17175/30000] focal loss: 0.068, box loss: 0.054, 0.403s/4-batch (fw: 0.177s, bw: 0.160s), 9.9 im/s, lr: 0.0013
+[17321/30000] focal loss: 0.099, box loss: 0.063, 0.414s/4-batch (fw: 0.181s, bw: 0.160s), 9.7 im/s, lr: 0.0013
+[17467/30000] focal loss: 0.065, box loss: 0.052, 0.411s/4-batch (fw: 0.175s, bw: 0.161s), 9.7 im/s, lr: 0.0013
+[17617/30000] focal loss: 0.072, box loss: 0.058, 0.401s/4-batch (fw: 0.181s, bw: 0.161s), 10.0 im/s, lr: 0.0013
+[17764/30000] focal loss: 0.065, box loss: 0.055, 0.411s/4-batch (fw: 0.174s, bw: 0.160s), 9.7 im/s, lr: 0.0013
+[17911/30000] focal loss: 0.085, box loss: 0.049, 0.411s/4-batch (fw: 0.173s, bw: 0.161s), 9.7 im/s, lr: 0.0013
+[18058/30000] focal loss: 0.077, box loss: 0.057, 0.412s/4-batch (fw: 0.178s, bw: 0.162s), 9.7 im/s, lr: 0.0013
+[18203/30000] focal loss: 0.092, box loss: 0.061, 0.415s/4-batch (fw: 0.179s, bw: 0.162s), 9.6 im/s, lr: 0.0013
+[18351/30000] focal loss: 0.060, box loss: 0.053, 0.407s/4-batch (fw: 0.178s, bw: 0.161s), 9.8 im/s, lr: 0.0013
+[18497/30000] focal loss: 0.066, box loss: 0.053, 0.413s/4-batch (fw: 0.181s, bw: 0.162s), 9.7 im/s, lr: 0.0013
+[18648/30000] focal loss: 0.084, box loss: 0.059, 0.401s/4-batch (fw: 0.179s, bw: 0.159s), 10.0 im/s, lr: 0.0013
+[18798/30000] focal loss: 0.080, box loss: 0.058, 0.403s/4-batch (fw: 0.179s, bw: 0.160s), 9.9 im/s, lr: 0.0013
+[18946/30000] focal loss: 0.113, box loss: 0.055, 0.406s/4-batch (fw: 0.179s, bw: 0.159s), 9.9 im/s, lr: 0.0013
+[19097/30000] focal loss: 0.082, box loss: 0.057, 0.398s/4-batch (fw: 0.181s, bw: 0.159s), 10.1 im/s, lr: 0.0013
+[19242/30000] focal loss: 0.087, box loss: 0.057, 0.415s/4-batch (fw: 0.179s, bw: 0.163s), 9.6 im/s, lr: 0.0013
+[19388/30000] focal loss: 0.066, box loss: 0.056, 0.412s/4-batch (fw: 0.175s, bw: 0.160s), 9.7 im/s, lr: 0.0013
+[19535/30000] focal loss: 0.081, box loss: 0.049, 0.411s/4-batch (fw: 0.181s, bw: 0.160s), 9.7 im/s, lr: 0.0013
+[19681/30000] focal loss: 0.072, box loss: 0.055, 0.413s/4-batch (fw: 0.178s, bw: 0.161s), 9.7 im/s, lr: 0.0013
+[19828/30000] focal loss: 0.061, box loss: 0.050, 0.409s/4-batch (fw: 0.180s, bw: 0.162s), 9.8 im/s, lr: 0.0013
+[19976/30000] focal loss: 0.055, box loss: 0.052, 0.408s/4-batch (fw: 0.179s, bw: 0.162s), 9.8 im/s, lr: 0.0013
+[20124/30000] focal loss: 0.301, box loss: 0.064, 0.408s/4-batch (fw: 0.173s, bw: 0.160s), 9.8 im/s, lr: 0.0013
+[20272/30000] focal loss: 0.106, box loss: 0.057, 0.406s/4-batch (fw: 0.185s, bw: 0.162s), 9.9 im/s, lr: 0.0013
+[20420/30000] focal loss: 0.085, box loss: 0.056, 0.406s/4-batch (fw: 0.173s, bw: 0.160s), 9.8 im/s, lr: 0.0013
+[20568/30000] focal loss: 0.094, box loss: 0.063, 0.406s/4-batch (fw: 0.176s, bw: 0.160s), 9.9 im/s, lr: 0.0013
+[20716/30000] focal loss: 0.152, box loss: 0.062, 0.410s/4-batch (fw: 0.174s, bw: 0.159s), 9.8 im/s, lr: 0.0013
+[20861/30000] focal loss: 0.080, box loss: 0.053, 0.415s/4-batch (fw: 0.179s, bw: 0.161s), 9.6 im/s, lr: 0.0013
+[21005/30000] focal loss: 0.065, box loss: 0.057, 0.419s/4-batch (fw: 0.177s, bw: 0.161s), 9.5 im/s, lr: 0.0013
+[21147/30000] focal loss: 0.071, box loss: 0.050, 0.426s/4-batch (fw: 0.177s, bw: 0.161s), 9.4 im/s, lr: 0.0013
+[21288/30000] focal loss: 0.079, box loss: 0.059, 0.426s/4-batch (fw: 0.184s, bw: 0.161s), 9.4 im/s, lr: 0.0013
+[21429/30000] focal loss: 0.086, box loss: 0.055, 0.427s/4-batch (fw: 0.182s, bw: 0.162s), 9.4 im/s, lr: 0.0013
+[21569/30000] focal loss: 0.118, box loss: 0.064, 0.429s/4-batch (fw: 0.182s, bw: 0.162s), 9.3 im/s, lr: 0.0013
+[21707/30000] focal loss: 0.073, box loss: 0.051, 0.438s/4-batch (fw: 0.191s, bw: 0.165s), 9.1 im/s, lr: 0.0013
+[21846/30000] focal loss: 0.103, box loss: 0.063, 0.432s/4-batch (fw: 0.181s, bw: 0.162s), 9.3 im/s, lr: 0.0013
+[21985/30000] focal loss: 0.079, box loss: 0.057, 0.433s/4-batch (fw: 0.187s, bw: 0.162s), 9.2 im/s, lr: 0.0013
+[22125/30000] focal loss: 0.081, box loss: 0.057, 0.431s/4-batch (fw: 0.183s, bw: 0.160s), 9.3 im/s, lr: 0.0013
+[22262/30000] focal loss: 0.087, box loss: 0.057, 0.440s/4-batch (fw: 0.180s, bw: 0.164s), 9.1 im/s, lr: 0.0013
+[22403/30000] focal loss: 0.067, box loss: 0.049, 0.428s/4-batch (fw: 0.181s, bw: 0.161s), 9.4 im/s, lr: 0.0013
+[22542/30000] focal loss: 0.112, box loss: 0.058, 0.433s/4-batch (fw: 0.188s, bw: 0.162s), 9.2 im/s, lr: 0.0013
+[22683/30000] focal loss: 0.075, box loss: 0.053, 0.427s/4-batch (fw: 0.181s, bw: 0.157s), 9.4 im/s, lr: 0.0013
+[22825/30000] focal loss: 0.063, box loss: 0.056, 0.425s/4-batch (fw: 0.185s, bw: 0.161s), 9.4 im/s, lr: 0.0013
+[22965/30000] focal loss: 0.075, box loss: 0.058, 0.430s/4-batch (fw: 0.183s, bw: 0.161s), 9.3 im/s, lr: 0.0013
+[23106/30000] focal loss: 0.060, box loss: 0.046, 0.428s/4-batch (fw: 0.181s, bw: 0.162s), 9.3 im/s, lr: 0.0013
+[23249/30000] focal loss: 0.072, box loss: 0.050, 0.421s/4-batch (fw: 0.177s, bw: 0.160s), 9.5 im/s, lr: 0.0013
+[23388/30000] focal loss: 0.097, box loss: 0.064, 0.432s/4-batch (fw: 0.182s, bw: 0.164s), 9.3 im/s, lr: 0.0013
+[23528/30000] focal loss: 0.060, box loss: 0.052, 0.431s/4-batch (fw: 0.185s, bw: 0.164s), 9.3 im/s, lr: 0.0013
+[23669/30000] focal loss: 0.066, box loss: 0.050, 0.426s/4-batch (fw: 0.186s, bw: 0.161s), 9.4 im/s, lr: 0.0013
+[23809/30000] focal loss: 0.060, box loss: 0.049, 0.431s/4-batch (fw: 0.183s, bw: 0.161s), 9.3 im/s, lr: 0.0013
+[23951/30000] focal loss: 0.391, box loss: 0.067, 0.423s/4-batch (fw: 0.179s, bw: 0.161s), 9.5 im/s, lr: 0.0013
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.09996
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.20303
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.07466
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.01014
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.17387
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.13480
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.09879
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.16159
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.16159
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.01556
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.23782
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.20833
+[24001/30000] focal loss: 0.378, box loss: 0.068, 6.499s/4-batch (fw: 0.182s, bw: 0.158s), 0.6 im/s, lr: 0.0013
+[24143/30000] focal loss: 0.325, box loss: 0.053, 0.425s/4-batch (fw: 0.185s, bw: 0.162s), 9.4 im/s, lr: 0.0013
+[24285/30000] focal loss: 0.184, box loss: 0.065, 0.424s/4-batch (fw: 0.186s, bw: 0.163s), 9.4 im/s, lr: 0.0013
+[24427/30000] focal loss: 0.090, box loss: 0.056, 0.425s/4-batch (fw: 0.183s, bw: 0.161s), 9.4 im/s, lr: 0.0013
+[24569/30000] focal loss: 0.084, box loss: 0.054, 0.423s/4-batch (fw: 0.180s, bw: 0.161s), 9.5 im/s, lr: 0.0013
+[24713/30000] focal loss: 0.077, box loss: 0.050, 0.419s/4-batch (fw: 0.181s, bw: 0.157s), 9.6 im/s, lr: 0.0013
+[24854/30000] focal loss: 0.085, box loss: 0.053, 0.426s/4-batch (fw: 0.182s, bw: 0.161s), 9.4 im/s, lr: 0.0013
+[24993/30000] focal loss: 0.066, box loss: 0.048, 0.433s/4-batch (fw: 0.184s, bw: 0.162s), 9.2 im/s, lr: 0.0013
+[25134/30000] focal loss: 0.063, box loss: 0.050, 0.427s/4-batch (fw: 0.175s, bw: 0.161s), 9.4 im/s, lr: 0.0013
+[25275/30000] focal loss: 0.065, box loss: 0.052, 0.429s/4-batch (fw: 0.180s, bw: 0.163s), 9.3 im/s, lr: 0.0013
+[25416/30000] focal loss: 0.056, box loss: 0.048, 0.426s/4-batch (fw: 0.186s, bw: 0.161s), 9.4 im/s, lr: 0.0013
+[25559/30000] focal loss: 0.062, box loss: 0.046, 0.422s/4-batch (fw: 0.182s, bw: 0.161s), 9.5 im/s, lr: 0.0013
+[25698/30000] focal loss: 0.062, box loss: 0.052, 0.433s/4-batch (fw: 0.188s, bw: 0.163s), 9.2 im/s, lr: 0.0013
+[25837/30000] focal loss: 0.133, box loss: 0.059, 0.435s/4-batch (fw: 0.183s, bw: 0.164s), 9.2 im/s, lr: 0.0013
+[25978/30000] focal loss: 0.115, box loss: 0.054, 0.428s/4-batch (fw: 0.185s, bw: 0.160s), 9.4 im/s, lr: 0.0013
+[26118/30000] focal loss: 0.066, box loss: 0.048, 0.429s/4-batch (fw: 0.181s, bw: 0.163s), 9.3 im/s, lr: 0.0013
+[26256/30000] focal loss: 0.061, box loss: 0.056, 0.436s/4-batch (fw: 0.179s, bw: 0.161s), 9.2 im/s, lr: 0.0013
+[26397/30000] focal loss: 0.063, box loss: 0.045, 0.428s/4-batch (fw: 0.180s, bw: 0.164s), 9.3 im/s, lr: 0.0013
+[26538/30000] focal loss: 0.073, box loss: 0.055, 0.426s/4-batch (fw: 0.182s, bw: 0.161s), 9.4 im/s, lr: 0.0013
+[26676/30000] focal loss: 0.069, box loss: 0.049, 0.436s/4-batch (fw: 0.190s, bw: 0.164s), 9.2 im/s, lr: 0.0013
+[26818/30000] focal loss: 0.077, box loss: 0.054, 0.426s/4-batch (fw: 0.189s, bw: 0.161s), 9.4 im/s, lr: 0.0013
+[26960/30000] focal loss: 0.061, box loss: 0.048, 0.423s/4-batch (fw: 0.185s, bw: 0.159s), 9.5 im/s, lr: 0.0013
+[27099/30000] focal loss: 0.074, box loss: 0.056, 0.432s/4-batch (fw: 0.186s, bw: 0.163s), 9.3 im/s, lr: 0.0013
+[27242/30000] focal loss: 0.067, box loss: 0.053, 0.423s/4-batch (fw: 0.182s, bw: 0.158s), 9.5 im/s, lr: 0.0013
+[27383/30000] focal loss: 0.065, box loss: 0.046, 0.428s/4-batch (fw: 0.182s, bw: 0.162s), 9.3 im/s, lr: 0.0013
+[27523/30000] focal loss: 0.066, box loss: 0.048, 0.429s/4-batch (fw: 0.182s, bw: 0.161s), 9.3 im/s, lr: 0.0013
+[27665/30000] focal loss: 0.070, box loss: 0.053, 0.423s/4-batch (fw: 0.179s, bw: 0.161s), 9.5 im/s, lr: 0.0013
+[27806/30000] focal loss: 0.092, box loss: 0.056, 0.426s/4-batch (fw: 0.181s, bw: 0.163s), 9.4 im/s, lr: 0.0013
+[27949/30000] focal loss: 0.050, box loss: 0.046, 0.422s/4-batch (fw: 0.180s, bw: 0.160s), 9.5 im/s, lr: 0.0013
+[28090/30000] focal loss: 0.065, box loss: 0.053, 0.428s/4-batch (fw: 0.184s, bw: 0.162s), 9.3 im/s, lr: 0.0013
+[28230/30000] focal loss: 0.059, box loss: 0.052, 0.431s/4-batch (fw: 0.180s, bw: 0.160s), 9.3 im/s, lr: 0.0013
+[28369/30000] focal loss: 0.053, box loss: 0.043, 0.434s/4-batch (fw: 0.186s, bw: 0.162s), 9.2 im/s, lr: 0.0013
+[28510/30000] focal loss: 0.056, box loss: 0.048, 0.426s/4-batch (fw: 0.181s, bw: 0.160s), 9.4 im/s, lr: 0.0013
+[28650/30000] focal loss: 0.074, box loss: 0.055, 0.431s/4-batch (fw: 0.182s, bw: 0.162s), 9.3 im/s, lr: 0.0013
+[28792/30000] focal loss: 0.050, box loss: 0.046, 0.425s/4-batch (fw: 0.190s, bw: 0.162s), 9.4 im/s, lr: 0.0013
+[28933/30000] focal loss: 0.078, box loss: 0.048, 0.427s/4-batch (fw: 0.186s, bw: 0.160s), 9.4 im/s, lr: 0.0013
+[29073/30000] focal loss: 0.073, box loss: 0.046, 0.432s/4-batch (fw: 0.183s, bw: 0.163s), 9.3 im/s, lr: 0.0013
+[29216/30000] focal loss: 0.065, box loss: 0.053, 0.422s/4-batch (fw: 0.184s, bw: 0.161s), 9.5 im/s, lr: 0.0013
+[29357/30000] focal loss: 0.066, box loss: 0.048, 0.426s/4-batch (fw: 0.177s, bw: 0.161s), 9.4 im/s, lr: 0.0013
+[29496/30000] focal loss: 0.080, box loss: 0.055, 0.432s/4-batch (fw: 0.179s, bw: 0.162s), 9.3 im/s, lr: 0.0013
+[29638/30000] focal loss: 0.059, box loss: 0.046, 0.425s/4-batch (fw: 0.182s, bw: 0.159s), 9.4 im/s, lr: 0.0013
+[29779/30000] focal loss: 0.058, box loss: 0.047, 0.426s/4-batch (fw: 0.178s, bw: 0.159s), 9.4 im/s, lr: 0.0013
+[29921/30000] focal loss: 0.059, box loss: 0.048, 0.425s/4-batch (fw: 0.185s, bw: 0.162s), 9.4 im/s, lr: 0.0013
+[30000/30000] focal loss: 0.047, box loss: 0.041, 0.419s/4-batch (fw: 0.174s, bw: 0.158s), 9.5 im/s, lr: 0.0013
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.11106
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.28582
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.06702
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.05240
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.24148
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.30465
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.10348
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.20016
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.20016
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.07228
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.38820
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.38333
+root@cde39677a099:/workspace# 

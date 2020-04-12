@@ -1,0 +1,17 @@
+From within retinanet folder:
+
+    docker build -t retinanet:latest .
+    nvidia-docker run --rm --ipc=host -it retinanet:latest
+    retinanet train retinanet_rn50fpn.pth --backbone ResNet50FPN --lr 0.00125 \
+    --images ./retinanet/coco/train2017/ --annotations ./retinanet/coco/annotations/instances_train2017.json \
+    --val-images ./retinanet/coco/val2017/ --val-annotations ./retinanet/coco/annotations/instances_val2017.json \
+    --classes 7 --batch 4 --iters 30000
+
+Looks like its saving to /root/.torch/models/
+
+Initializing model...
+Downloading: "https://download.pytorch.org/models/resnet50-19c8e357.pth" to /root/.torch/models/resnet50-19c8e357.pth
+102502400it [00:02, 39895699.05it/s]
+     model: RetinaNet
+  backbone: ResNet50FPN
+   classes: 7, anchors: 9
