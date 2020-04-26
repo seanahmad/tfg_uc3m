@@ -1,0 +1,31 @@
+Loading model from retinanet_rn50fpn.pth...
+     model: RetinaNet
+  backbone: ResNet50FPN
+   classes: 7, anchors: 9
+Preparing dataset...
+    loader: pytorch
+    resize: 800, max: 1333
+   backend: pytorch
+    device: 1 gpu
+     batch: 2, precision: mixed
+Running inference...
+[ 904/4060] 0.133s/2-batch (fw: 0.057s), 15.0 im/s
+[1844/4060] 0.128s/2-batch (fw: 0.052s), 15.6 im/s
+[2782/4060] 0.128s/2-batch (fw: 0.054s), 15.6 im/s
+[3716/4060] 0.129s/2-batch (fw: 0.053s), 15.6 im/s
+[4060/4060] 0.128s/2-batch (fw: 0.054s), 15.6 im/s
+Gathering results...
+Writing detections.json...
+Evaluating model...
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.11109
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.28587
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.06702
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.05240
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.24151
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.30465
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.10348
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.20013
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.20013
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.07224
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.38814
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.38333

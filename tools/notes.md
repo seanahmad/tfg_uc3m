@@ -162,6 +162,14 @@ NO PUEDE SER STOP = 1 EN TRAINING Y STOP = 2 EN VAL!!!!
 
 ############################## INFERENCE
 
-SSD: Siguiendo el tutorial de inferencia
+SSD: 
 
-Retinanet: 
+docker build . -t nvidia_ssd
+nvidia-docker run --rm -it --ulimit memlock=-1 --ulimit stack=67108864 -v $COCO_DIR:/coco --ipc=host nvidia_ssd
+python ./main.py --backbone resnet50 --mode evaluation --checkpoint ./models/models/epoch_20.pt --data ./COCO_DIR/
+
+nvidia-docker run --rm -it --ulimit memlock=-1 --ulimit stack=67108864 -v $SSD_CHECKPINT_PATH:/models/models/epoch_20.pt -v $COCO_PATH:/COCO_DIR --ipc=host -p 8888:8888 nvidia_ssd jupyter-notebook --ip 0.0.0.0 --allow-root
+
+Retinanet: Yastá
+
+Inferencia: retinanet infer /workspace/retinanet/models/retinanet_rn50fpn.pth --images /workspace/retinanet/coco/val2017/ --annotations /workspace/retinanet/coco/annotations/instances_val2017.json
