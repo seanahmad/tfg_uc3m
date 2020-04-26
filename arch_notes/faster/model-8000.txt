@@ -1,0 +1,61 @@
+(faster_rcnn) rubenromero_91@tfg-uc3m-vm:~/faster_rcnn$ bash ./scripts/coco2017/eval.sh resnet50 ./outputs/model-8000.pth 
+2020-04-26 16:12:04 INFO     Arguments:
+2020-04-26 16:12:04 INFO        dataset = coco2017
+2020-04-26 16:12:04 INFO        backbone = resnet50
+2020-04-26 16:12:04 INFO        data_dir = ./data
+2020-04-26 16:12:04 INFO        image_min_side = 800.0
+2020-04-26 16:12:04 INFO        image_max_side = 1333.0
+2020-04-26 16:12:04 INFO        anchor_ratios = None
+2020-04-26 16:12:04 INFO        anchor_sizes = [64, 128, 256, 512]
+2020-04-26 16:12:04 INFO        pooler_mode = None
+2020-04-26 16:12:04 INFO        rpn_pre_nms_top_n = None
+2020-04-26 16:12:04 INFO        rpn_post_nms_top_n = 1000
+2020-04-26 16:12:04 INFO        checkpoint = ./outputs/model-8000.pth
+2020-04-26 16:12:04 INFO     
+Config:
+        ANCHOR_RATIOS = [(1, 2), (1, 1), (2, 1)]
+        ANCHOR_SIZES = [64, 128, 256, 512]
+        IMAGE_MAX_SIDE = 1333.0        IMAGE_MIN_SIDE = 800.0
+        POOLER_MODE = Mode.ALIGN
+        RPN_POST_NMS_TOP_N = 1000
+        RPN_PRE_NMS_TOP_N = 6000
+
+loading annotations into memory...
+Done (t=0.18s)
+creating index...
+index created!
+generating cache files...
+json found!
+100%|████████████████████████████████████████████████████████████████████████████████████████████████| 4060/4060 [02:45<00:00, 24.56it/s]
+2020-04-26 16:14:51 INFO     Found 3348 samples
+2020-04-26 16:15:17 INFO     Start evaluating with 1 GPU (1 batch per GPU)
+100%|████████████████████████████████████████████████████████████████████████████████████████████████| 3348/3348 [09:21<00:00,  5.96it/s]
+loading annotations into memory...
+Done (t=0.04s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.09s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=2.51s).
+Accumulating evaluation results...
+DONE (t=0.57s).
+2020-04-26 16:24:42 INFO     Done
+2020-04-26 16:24:42 INFO     mean AP = 0.2297
+2020-04-26 16:24:42 INFO     
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.230
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.579
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.139
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.149
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.322
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.075
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.205
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.337
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.337
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.271
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.430
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.142
+

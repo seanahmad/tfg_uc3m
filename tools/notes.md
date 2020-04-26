@@ -162,6 +162,11 @@ NO PUEDE SER STOP = 1 EN TRAINING Y STOP = 2 EN VAL!!!!
 
 ############################## INFERENCE
 
+(faster_rcnn) rubenromero_91@tfg-uc3m-vm:~/faster_rcnn/data/COCO/train2017$ find . -type f | wc -l
+20928
+(faster_rcnn) rubenromero_91@tfg-uc3m-vm:~/faster_rcnn/data/COCO/train2017$ cd ../val2017/ && find . -type f | wc -l
+4060
+
 SSD: 
 
 docker build . -t nvidia_ssd
@@ -170,6 +175,20 @@ python ./main.py --backbone resnet50 --mode evaluation --checkpoint ./models/mod
 
 nvidia-docker run --rm -it --ulimit memlock=-1 --ulimit stack=67108864 -v $SSD_CHECKPINT_PATH:/models/models/epoch_20.pt -v $COCO_PATH:/COCO_DIR --ipc=host -p 8888:8888 nvidia_ssd jupyter-notebook --ip 0.0.0.0 --allow-root
 
-Retinanet: Yastá
+Retinanet: 
+
+Yastá
 
 Inferencia: retinanet infer /workspace/retinanet/models/retinanet_rn50fpn.pth --images /workspace/retinanet/coco/val2017/ --annotations /workspace/retinanet/coco/annotations/instances_val2017.json
+
+Faster-RCNN:
+
+bash ./scripts/coco2017/eval.sh resnet50 ./outputs/model-8000.pth 
+
+bash ./scripts/coco2017/infer.sh resnet50 ./outputs/model-36000.pth ./data/COCO/val2017/daySequence1--00800.jpg ./daySequence1--00800.jpg
+
+cp ./data/COCO/val2017/daySequence1--00800.jpg ../tfg_uc3m/arch_notes/faster/
+cp ./data/COCO/val2017/daySequence1--02200.jpg ../tfg_uc3m/arch_notes/faster/
+cp ./data/COCO/val2017/daySequence1--00060.jpg ../tfg_uc3m/arch_notes/faster/
+cp ./data/COCO/val2017/daySequence1--01010.jpg ../tfg_uc3m/arch_notes/faster/
+cp ./data/COCO/val2017/daySequence1--00437.jpg ../tfg_uc3m/arch_notes/faster/
