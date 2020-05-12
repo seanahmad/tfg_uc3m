@@ -192,3 +192,11 @@ cp ./data/COCO/val2017/daySequence1--02200.jpg ../tfg_uc3m/arch_notes/faster/
 cp ./data/COCO/val2017/daySequence1--00060.jpg ../tfg_uc3m/arch_notes/faster/
 cp ./data/COCO/val2017/daySequence1--01010.jpg ../tfg_uc3m/arch_notes/faster/
 cp ./data/COCO/val2017/daySequence1--00437.jpg ../tfg_uc3m/arch_notes/faster/
+
+
+Inferencia con:
+
+daySequence1--00301.jpg
+daySequence1--02026.jpg
+daySequence1--03128.jpg
+daySequence1--04028.jpg
