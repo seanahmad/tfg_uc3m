@@ -205,3 +205,8 @@ bash ./scripts/coco2017/infer.sh resnet50 ./outputs/model-36000.pth ./data/COCO/
 bash ./scripts/coco2017/infer.sh resnet50 ./outputs/model-36000.pth ./data/COCO/val2017/daySequence1--02026.jpg ./daySequence1--02026.jpg
 bash ./scripts/coco2017/infer.sh resnet50 ./outputs/model-36000.pth ./data/COCO/val2017/daySequence1--03128.jpg ./daySequence1--03128.jpg
 bash ./scripts/coco2017/infer.sh resnet50 ./outputs/model-36000.pth ./data/COCO/val2017/daySequence1--04028.jpg ./daySequence1--04028.jpg
+
+docker cp faster_rcnn/data/COCO/val2017/daySequence1--00301.jpg 022843d6aef2:/
+docker cp faster_rcnn/data/COCO/val2017/daySequence1--02026.jpg 022843d6aef2:/
+docker cp faster_rcnn/data/COCO/val2017/daySequence1--03128.jpg 022843d6aef2:/
+docker cp faster_rcnn/data/COCO/val2017/daySequence1--04028.jpg 022843d6aef2:/
