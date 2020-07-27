@@ -104,7 +104,7 @@ def get_categories(training=True):
         df = pd.read_csv(os.path.join(lisa_path, 'test_data.csv'), 
             index_col=False)
 
-    tags = df['Annotation tag'].unique().tolist()
+    tags = df['Annotation tag'].unique().tolist().sort()
     print('Tags len is: ' + str(len(tags)))
 
     categories = []
